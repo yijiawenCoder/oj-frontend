@@ -1,9 +1,7 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view />
+  <div id="app">
+    <BasicLayout />
+  </div>
 </template>
 
 <style>
@@ -28,3 +26,9 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 </style>
+<script setup lang="ts">
+import BasicLayout from "@/layouts/BasicLayout.vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+</script>
