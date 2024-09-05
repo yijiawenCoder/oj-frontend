@@ -26,6 +26,7 @@
 
 #BasicLayout .content {
   margin-bottom: 16px;
+  padding: 20px;
 }
 
 #BasicLayout .footer {

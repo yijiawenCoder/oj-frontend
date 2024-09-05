@@ -1,5 +1,10 @@
 <template>
-  <a-row id="globalHeader" style="margin-bottom: 16px" align="center">
+  <a-row
+    id="globalHeader"
+    style="margin-bottom: 16px"
+    align="center"
+    :wrap="false"
+  >
     <a-col flex="auto">
       <div>
         <a-menu
@@ -17,7 +22,7 @@
               <div class="title">湖商OJ</div>
             </div>
           </a-menu-item>
-          <a-menu-item v-for="item in routes" :key="item.path">
+          <a-menu-item v-for="item in visibleRoutes" :key="item.path">
             {{ item.name }}
           </a-menu-item>
         </a-menu>
@@ -56,6 +61,12 @@ const doMenuClick = (key: string) => {
     path: key,
   });
 };
+const visibleRoutes = routes.filter((item, index) => {
+  if (item.meta?.hideInMenu) {
+    return false;
+  }
+  return true;
+});
 </script>
 
 <style scoped>

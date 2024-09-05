@@ -1,11 +1,30 @@
 import { RouteRecordRaw } from "vue-router";
 import HomeView from "@/views/HomeView.vue";
 
+import CanAdminView from "@/views/CanAdminView.vue";
+import NoAuthView from "@/views/NoAuthView.vue";
+
 export const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "浏览题目",
     component: HomeView,
+  },
+  {
+    path: "/noAuth",
+    name: "无权限",
+    component: NoAuthView,
+    meta: {
+      hideInMenu: true,
+    },
+  },
+  {
+    path: "/canAdmin",
+    name: "仅管理员可见",
+    component: CanAdminView,
+    meta: {
+      access: "canAdmin",
+    },
   },
   {
     path: "/about",
